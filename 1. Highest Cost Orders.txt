@@ -1,0 +1,15 @@
+https://platform.stratascratch.com/coding/9915-highest-cost-orders?code_type=2
+
+Solution:
+filtered_order_data = orders[orders['order_date'].between('2019-02-01', '2019-05-01')]
+daily_totals = filtered_order_data.groupby(['cust_id', 'order_date']).agg(max_cost = ('total_order_cost', 'sum')).reset_index()
+
+#MAX VAUE_PERDAY
+daily_totals['max_for_day'] = daily_totals.groupby('order_date')['max_cost'].transform('max')
+
+top_performers = daily_totals[daily_totals['max_cost'] == daily_totals['max_for_day']]
+
+data = customers.merge(top_performers, left_on = 'id', right_on = 'cust_id', how = 'inner')
+
+output = data[['first_name', 'order_date', 'max_cost']]
+output
