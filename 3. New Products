@@ -1,0 +1,24 @@
+https://platform.stratascratch.com/coding/10318-new-products?code_type=2
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+car_launches.head()
+
+df_2020 = car_launches[car_launches['year']==2020]
+df_2020 = df_2020.groupby('company_name').agg(cars_2020 = ('product_name', 'nunique')).reset_index()
+
+df_2019 = car_launches[car_launches['year']==2019]
+df_2019 = df_2019.groupby('company_name').agg(cars_2019 = ('product_name', 'nunique')).reset_index()
+
+
+output = car_launches[['company_name']].drop_duplicates()
+output = output.merge(df_2020, how = 'left', on = 'company_name')
+output = output.merge(df_2019, how = 'left', on = 'company_name')
+
+output = output.fillna(0)
+output['net_new_products'] = output['cars_2020'] - output['cars_2019']
+
+output = output[['company_name', 'net_new_products']]
+output
