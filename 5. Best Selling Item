@@ -1,0 +1,17 @@
+https://platform.stratascratch.com/coding/10172-best-selling-item?code_type=2
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+online_retail.head()
+
+online_retail = online_retail[online_retail['quantity']>0]
+online_retail['month'] = pd.to_datetime(online_retail['invoicedate']).dt.month
+
+online_retail = online_retail.fillna(0)
+online_retail['total_paid'] = online_retail['unitprice'] * online_retail['quantity']
+output = online_retail.groupby(['month','description']).agg(total_paid = ('total_paid', 'sum')).reset_index()
+
+output['rnk'] = output.groupby('month')['total_paid'].rank(method='max', ascending=False)
+output = output[output['rnk'] == 1][['month', 'description', 'total_paid']].sort_values('month')
