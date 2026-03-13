@@ -1,0 +1,19 @@
+Day 10[March 13, 2026] - Python Pandas
+https://platform.stratascratch.com/coding/10308-salaries-differences?code_type=2
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+db_employee.head()
+
+data1 = db_employee.merge(db_dept, left_on = 'department_id', right_on = 'id', how = 'left')
+
+marketing_highest = data1[data1['department'] == 'marketing']['salary'].max()
+engineering_highest = data1[data1['department'] == 'engineering']['salary'].max()
+
+
+output = pd.DataFrame()
+output.loc[0, 'salary_difference'] = abs(marketing_highest - engineering_highest)
+output
+
