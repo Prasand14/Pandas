@@ -1,0 +1,11 @@
+Day 11[March 14, 2026] - Python Pandas
+#Same Stripes
+https://datalemur.com/questions/python-same-stripes
+def is_same_stripes(matrix):
+  #ITERATE THROUGH ROWS FROM SECOND ROW
+  for i in range(1, len(matrix)):
+    #ITERATE THROUGH COLUMNS FROM SECOND COLUMN
+    for j in range(1, len(matrix[0])):
+      if matrix[i][j] != matrix[i-1][j-1]:
+        return False
+  return True
