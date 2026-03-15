@@ -1,0 +1,15 @@
+Day 12[March 15, 2026] - Python Pandas
+https://datalemur.com/questions/python-hill-climbing
+
+def climb_hill(n):
+  if n <= 2:
+    return n
+  first, second = 1, 2
+  for i in range(3, n+1):
+    # The current step is the sum of the previous two
+    current = first + second
+    # Move forward: the old 'second' becomes 'first'
+    first = second
+    second = current
+  
+  return second
