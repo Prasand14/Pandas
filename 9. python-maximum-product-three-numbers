@@ -1,0 +1,10 @@
+Day 15[March 18, 2026] - Python Pandas
+https://datalemur.com/questions/python-maximum-product-three-numbers
+
+def max_three(input):
+  
+  input.sort()
+  option1 = input[0] * input[1] * input[-1]
+  option2 = input[-1] * input[-2] * input[-3]
+  
+  return max(option1, option2)
