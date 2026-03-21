@@ -1,0 +1,15 @@
+Day 18 [March 21, 2026] - Python Pandas
+https://datalemur.com/questions/python-salary-inequity
+
+def min_inequity(salaries, n):
+  #SORT
+  salaries.sort()
+  
+  min_diff = float('inf')
+  
+  for i in range(len(salaries) - n + 1):
+    current_inequity = salaries[i + n - 1] - salaries[i]
+    if current_inequity < min_diff:
+      min_diff = current_inequity
+  
+  return min_diff
