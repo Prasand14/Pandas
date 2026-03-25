@@ -1,0 +1,12 @@
+Day 21 [March 25, 2026] - Python Pandas	
+https://datalemur.com/questions/python-add-another-one
+
+def another_one(digits):
+  for i in range(len(digits) - 1, -1, -1):
+    if digits[i] < 9:
+      digits[i] += 1
+      return digits
+    
+    digits[i] = 0
+    
+  return [1] + digits
