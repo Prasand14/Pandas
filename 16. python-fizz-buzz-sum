@@ -1,0 +1,9 @@
+Day 24 [March 28, 2026] - Python Pandas	
+https://datalemur.com/questions/python-fizz-buzz-sum
+
+def fizz_buzz_sum(target):
+  total_sum = 0
+  for i in range(target):
+    if i%3 == 0 or i%5 == 0:
+      total_sum += i
+  return total_sum
