@@ -1,0 +1,21 @@
+Day 26 [March 30, 2026] - SQL
+https://datalemur.com/questions/python-is-anagram
+
+def is_anagram(s, t):
+    if len(s) != len(t):
+        return False
+    
+	count = {}
+    # Count characters in string s
+    for char in s:
+        count[char] = count.get(char, 0) + 1
+    
+    # Subtract characters using string t
+    for char in t:
+        if char not in count:
+            return False
+        count[char] -= 1
+        if count[char] < 0:
+            return False        
+    # If all counts are zero, they are anagrams
+    return all(value == 0 for value in count.values())
