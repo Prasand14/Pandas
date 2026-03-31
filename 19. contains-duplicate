@@ -1,0 +1,11 @@
+Day 28 [March 31, 2026] - Pandas
+https://datalemur.com/questions/python-contains-duplicate
+
+def contains_duplicate(input)-> bool:
+  new_list = []
+  for elem in input:
+    if elem in new_list:
+      return True
+    else:
+      new_list.append(elem)
+  return False
