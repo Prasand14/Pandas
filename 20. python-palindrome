@@ -1,0 +1,9 @@
+Day 28 [April 1, 2026] - SQL
+https://datalemur.com/questions/python-palindrome
+def isPalindrome(phrase):
+  phrase = "".join(char.lower() for char in phrase if char.isalnum())
+  new_phrase = ''
+  for i in range(len(phrase)-1, -1, -1):
+    new_phrase = new_phrase + phrase[i]
+  
+  return phrase == new_phrase
