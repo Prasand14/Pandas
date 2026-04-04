@@ -1,0 +1,12 @@
+Day 30 [April 4, 2026] - Pandas
+https://datalemur.com/questions/python-weakest-strong-link
+
+def collatzSteps(n):
+  steps = 0
+  while n != 1:
+      if n % 2 == 0:
+          n = n / 2
+      else:
+          n = 3 * n + 1
+      steps += 1
+  return steps
