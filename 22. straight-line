@@ -1,0 +1,11 @@
+Day 31 [April 5 2026] - Pandas
+https://datalemur.com/questions/python-straight-line
+
+def on_straight_line(points):
+  pt1 = points[0][0]
+  for elem in points:
+    if elem[0] != elem[1]:
+      if elem[0] != pt1:
+        return False
+  
+  return True
