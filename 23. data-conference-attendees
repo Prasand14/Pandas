@@ -1,0 +1,20 @@
+Day 32 [April 6 2026] - Pandas
+https://datalemur.com/questions/python-data-conference-attendees
+
+import math
+from collections import Counter
+
+def minAttendees(answers):
+    counts = Counter(answers)
+    total_attendees = 0
+    
+    for x, num_respondents in counts.items():
+        # A group size for an answer 'x' is x + 1
+        group_size = x + 1
+        
+        num_groups = math.ceil(num_respondents / group_size)
+        
+        # Add the total people in those groups to running sum
+        total_attendees += num_groups * group_size
+        
+    return total_attendees
