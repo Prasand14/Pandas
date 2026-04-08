@@ -1,0 +1,19 @@
+Day 33 [April 8 2026] - Pandas
+https://datalemur.com/questions/python-two-sum-2
+
+def sorted_two_sum(nums, target):
+  # Initialize pointers at the start and end
+  left = 0
+  right = len(nums) - 1
+  
+  while left < right:
+      current_sum = nums[left] + nums[right]
+      
+      if current_sum == target:
+          return [left, right]
+      elif current_sum<target:
+        left += 1
+      else:
+        right -= 1
+  
+  return [-1, -1]
